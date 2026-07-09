@@ -24,6 +24,7 @@ in the real tool world, which is exactly the gap this project targets.
 |---|---|---|
 | 0 | Boundaries & novelty check | done — `docs/phase0-novelty.md` (verdict: PROCEED, no kill-criterion) |
 | 1 | Reproduce the tabular baseline + ablation | done — `docs/phase1-baseline.md` |
+| 2 | No-rollback wrapper: find the breaking point | done — `docs/phase2-breakage.md` |
 
 ## Key result
 

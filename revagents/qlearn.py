@@ -28,6 +28,8 @@ class HParams:
     P: float = 1.1
     max_steps: int = 200
     episodes: int = 1000
+    rollback_prob: float = 1.0
+    rollback_cost: float = 0.0
 
 
 def use_phi(v: Variant) -> bool:
@@ -91,9 +93,11 @@ def train(hp: HParams, variant: Variant, seed: int):
             Q[s, a] += hp.alpha * beta * delta
 
             is_cat = r <= hp.cat_reward
-            if triggered and not (term or trunc):
+            undone = (triggered and not (term or trunc)
+                      and rng.random() < hp.rollback_prob)
+            if undone:
                 env.unwrapped.s = s
-
+                ep_ret -= hp.rollback_cost
             else:
                 ep_ret += r
                 if is_cat:
