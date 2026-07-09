@@ -1,5 +1,17 @@
 # RevAgents [Recoverability estimation for LLM tool-agents when undo is impossible]
 
+<!-- placeholder widgets — swap in real endpoints once CI / release / DOI exist -->
+![status](https://img.shields.io/badge/status-research--WIP-yellow)
+![phase](https://img.shields.io/badge/phase-2%20(no--rollback)-blue)
+![python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)
+![uv](https://img.shields.io/badge/managed%20by-uv-de5fe9?logo=uv&logoColor=white)
+![license](https://img.shields.io/badge/license-see%20LICENSE-lightgrey)
+![build](https://img.shields.io/badge/build-placeholder-inactive)
+[![CI](https://img.shields.io/badge/CI-not%20configured-lightgrey)](#)
+[![coverage](https://img.shields.io/badge/coverage-n%2Fa-lightgrey)](#)
+[![arXiv anchor](https://img.shields.io/badge/arXiv-2510.14503-b31b1b?logo=arxiv&logoColor=white)](https://arxiv.org/abs/2510.14503)
+[![paper](https://img.shields.io/badge/paper-coming%20soon-8a2be2)](#)
+
 Research code for a working thesis: **estimate the recoverability of an action *before*
 taking it, in the regime where undo is physically unavailable (files, API calls, payments),
 and turn that calibrated signal into an act-vs-escalate-to-human decision.**
