@@ -1,4 +1,4 @@
-# revagents — Recoverability estimation for LLM tool-agents when undo is impossible
+# RevAgents [Recoverability estimation for LLM tool-agents when undo is impossible]
 
 Research code for a working thesis: **estimate the recoverability of an action *before*
 taking it, in the regime where undo is physically unavailable (files, API calls, payments),
