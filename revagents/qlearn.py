@@ -15,7 +15,7 @@ class Variant(str, Enum):
 class HParams:
     env_id: str
     make_kwargs: dict
-    cat_reward: float          # raw reward marking a catastrophe (cliff / illegal)
+    cat_reward: float
     alpha: float = 0.1
     gamma: float = 0.99
     eps: float = 0.1
@@ -56,7 +56,7 @@ def train(hp: HParams, variant: Variant, seed: int):
 
     for ep in range(hp.episodes):
         s, _ = env.reset(seed=int(rng.integers(1 << 31)))
-        buf = []  # (s0, a0, deadline)
+        buf = []
         ep_ret = 0.0
         ep_cat = 0
         for t in range(hp.max_steps):
@@ -84,8 +84,7 @@ def train(hp: HParams, variant: Variant, seed: int):
                 rp = r
 
             delta = rp + hp.gamma * np.max(Q[s2]) - Q[s, a]
-            # sign-robust Eq.12: reduces to T*Q when Q<=0 (CliffWalking), avoids
-            # degenerate firing when Q>0 (Taxi's +20 goal).
+
             bar = Q[s, a] - (hp.T - 1) * abs(Q[s, a])
             triggered = roll_on and (r + hp.gamma * np.max(Q[s2]) <= bar)
             beta = hp.P if triggered else 1.0
@@ -93,8 +92,8 @@ def train(hp: HParams, variant: Variant, seed: int):
 
             is_cat = r <= hp.cat_reward
             if triggered and not (term or trunc):
-                env.unwrapped.s = s          # undo: revert to s_t
-                # intercepted catastrophe: learned from, not committed to return
+                env.unwrapped.s = s
+
             else:
                 ep_ret += r
                 if is_cat:

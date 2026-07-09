@@ -1,6 +1,5 @@
 # RevAgents [Recoverability estimation for LLM tool-agents when undo is impossible]
 
-<!-- placeholder widgets — swap in real endpoints once CI / release / DOI exist -->
 ![status](https://img.shields.io/badge/status-research--WIP-yellow)
 ![python](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white)
 ![uv](https://img.shields.io/badge/managed%20by-uv-de5fe9?logo=uv&logoColor=white)
